@@ -1,0 +1,37 @@
+# Fly.io configuration for ParkMate backend
+
+app = "parkmate-api"
+primary_region = "ord"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8000"
+
+[[services]]
+  internal_port = 8000
+  processes = ["app"]
+  protocol = "tcp"
+  
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [services.tcp_checks]
+    enabled = true
+    grace_period = "30s"
+    interval = "15s"
+    timeout = "5s"
+
+[metrics]
+  port = 9090

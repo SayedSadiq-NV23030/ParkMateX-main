@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ParkMate | Parking Map View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d8dadc",
+                        "on-primary-container": "#ede0ff",
+                        "primary": "#630ed4",
+                        "tertiary-container": "#a15100",
+                        "on-primary": "#ffffff",
+                        "secondary": "#545f73",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-fixed": "#111c2d",
+                        "inverse-surface": "#2d3133",
+                        "primary-fixed": "#eaddff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#ccc3d8",
+                        "surface-tint": "#732ee4",
+                        "on-tertiary-container": "#ffe0cd",
+                        "on-surface-variant": "#4a4455",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#7d3d00",
+                        "surface-variant": "#e0e3e5",
+                        "secondary-fixed": "#d8e3fb",
+                        "secondary-container": "#d5e0f8",
+                        "on-secondary-container": "#586377",
+                        "inverse-primary": "#d2bbff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e6e8ea",
+                        "background": "#f7f9fb",
+                        "secondary-fixed-dim": "#bcc7de",
+                        "on-surface": "#191c1e",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "surface-bright": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "surface": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-primary-fixed": "#25005a",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "on-background": "#191c1e",
+                        "primary-container": "#7c3aed",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed-dim": "#ffb784",
+                        "outline": "#7b7487",
+                        "primary-fixed-dim": "#d2bbff",
+                        "on-tertiary-fixed": "#301400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.map-bg {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBPnf8hX5E1aRTcERj_j-wfMviEoOccvZ7_QrN0Wc7ETuP4xuNFGdfa7rZQ-NG0Ly9Uzf8XpBjTkeXyLgZrx5tu5PxA2LnFQw2YaDj8AbW48ARchhPB8SOjkT9v0GZHK-qBJF9R4NeDEmMC28KCSB6K57-FmZJoFUU_Gh3QYKQ4GYkOTgUbGs1CEIHb-K2MbXakCtIPFi5T4gsyY3WiYv5C-W_MwMh0pAUTsktYwkCDCt6D6rJDPRIGXjdCTwjYVRsrotFuTGGTe1Y);
+    background-size: cover;
+    background-position: center
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-violet-700 dark:text-violet-400 text-2xl" data-icon="local_parking">local_parking</span>
+<h1 class="font-['Manrope'] font-bold tracking-tight text-2xl font-black text-slate-900 dark:text-white">ParkMate</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 mr-6">
+<a class="text-slate-500 dark:text-slate-400 font-semibold hover:text-violet-500 transition-all" href="#">Home</a>
+<a class="text-violet-700 dark:text-violet-400 font-bold" href="#">Map</a>
+<a class="text-slate-500 dark:text-slate-400 font-semibold hover:text-violet-500 transition-all" href="#">Activity</a>
+<a class="text-slate-500 dark:text-slate-400 font-semibold hover:text-violet-500 transition-all" href="#">Settings</a>
+</div>
+<img alt="User profile" class="w-10 h-10 rounded-full border-2 border-primary/20" data-alt="Close-up portrait of a professional male with a friendly expression in a modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx9lE9B-OwgTXOb_4lKGMpsbKt9fvmd6NmdaKODlg0CDs9n7sk1kI7_lcO3lx5gnK-sfPfrjtdgfWajj54EKKWGS9D8jqjHiK-e81eCv2-dNdBVzeaMjBPHCaaqWwOeHM432P9r2LjQvG2Abw8FZdM4BJ75rR7gaO-91hzZUBBu3rIFJAlN3furxGa5tVhM__wY1zFYyvQsp6VHQF3mEVHujirTOsMZltC1RwoLiNm4DcUziGoWjwvFJkNoTpiv4Z1welgh31ZtLw"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative h-screen w-full pt-[72px] pb-[88px] md:pb-0 overflow-hidden">
+<!-- Interactive Map Container -->
+<div class="absolute inset-0 z-0 map-bg" data-alt="High-resolution top-down 3D architectural rendering of a city block with clean streets and highlighted parking structures" data-location="San Francisco" style="">
+<div class="absolute inset-0 bg-on-surface/5 backdrop-blur-[2px]"></div>
+</div>
+<!-- Float Search Bar -->
+<div class="absolute top-24 left-1/2 -translate-x-1/2 w-[90%] max-w-xl z-20">
+<div class="bg-surface-container-lowest/90 backdrop-blur-xl rounded-full p-2 flex items-center shadow-lg shadow-on-surface/10 border border-outline-variant/20">
+<div class="flex-1 flex items-center px-4">
+<span class="material-symbols-outlined text-outline mr-3" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-medium w-full placeholder:text-outline" placeholder="Where are you heading?" type="text"/>
+</div>
+<button class="bg-primary text-on-primary p-3 rounded-full flex items-center justify-center hover:bg-primary-container transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</div>
+</div>
+<!-- Parking Grid Layout (Asymmetric Bento Overlay) -->
+<div class="absolute inset-0 flex items-center justify-center z-10 p-6">
+<div class="grid grid-cols-6 grid-rows-4 gap-4 w-full h-[60%] max-w-6xl">
+<!-- Large Interactive Parking Zone -->
+<div class="col-span-4 row-span-4 bg-surface-container-lowest/40 backdrop-blur-md rounded-full border border-white/30 shadow-2xl overflow-hidden p-8 flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="text-3xl font-headline font-extrabold text-on-surface tracking-tight">Main Garage A</h2>
+<p class="text-on-surface-variant font-medium">Level 2 • Sector C</p>
+</div>
+<div class="bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-sm">
+                            12 Slots Left
+                        </div>
+</div>
+<!-- Visual Parking Grid -->
+<div class="flex-1 grid grid-cols-5 gap-3">
+<!-- Iterative Slot Generation -->
+<div class="bg-on-secondary-container/10 border-2 border-dashed border-outline-variant/40 rounded-xl flex items-center justify-center group hover:border-primary/50 transition-all cursor-pointer">
+<span class="text-xs font-bold text-outline group-hover:text-primary">C01</span>
+</div>
+<div class="bg-primary/20 border-2 border-primary rounded-xl flex flex-col items-center justify-center relative overflow-hidden">
+<span class="text-xs font-bold text-primary mb-1">C02</span>
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="absolute inset-0 bg-primary/5"></div>
+</div>
+<div class="bg-surface-dim/30 rounded-xl flex items-center justify-center opacity-40">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="directions_car" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<div class="bg-on-secondary-container/10 border-2 border-dashed border-outline-variant/40 rounded-xl flex items-center justify-center group hover:border-primary/50 transition-all cursor-pointer">
+<span class="text-xs font-bold text-outline group-hover:text-primary">C04</span>
+</div>
+<div class="bg-surface-dim/30 rounded-xl flex items-center justify-center opacity-40">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="directions_car" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<!-- Row 2 -->
+<div class="bg-surface-dim/30 rounded-xl flex items-center justify-center opacity-40">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="directions_car" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<div class="bg-on-secondary-container/10 border-2 border-dashed border-outline-variant/40 rounded-xl flex items-center justify-center group hover:border-primary/50 transition-all cursor-pointer">
+<span class="text-xs font-bold text-outline group-hover:text-primary">C07</span>
+</div>
+<div class="bg-primary/20 border-2 border-primary/40 rounded-xl flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-all">
+<span class="text-xs font-bold text-primary">C08</span>
+</div>
+<div class="bg-surface-dim/30 rounded-xl flex items-center justify-center opacity-40">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="directions_car" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<div class="bg-on-secondary-container/10 border-2 border-dashed border-outline-variant/40 rounded-xl flex items-center justify-center group hover:border-primary/50 transition-all cursor-pointer">
+<span class="text-xs font-bold text-outline group-hover:text-primary">C10</span>
+</div>
+</div>
+</div>
+<!-- Side Info Cards -->
+<div class="col-span-2 row-span-2 bg-surface-container-lowest shadow-xl rounded-full p-6 border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="electric_car">electric_car</span>
+<span class="text-xs font-bold text-outline uppercase tracking-widest">Available Tech</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-on-surface">EV Charging</h3>
+</div>
+<p class="text-on-surface-variant text-sm body-md leading-relaxed">4 superchargers available in this zone. Priority for members.</p>
+<button class="text-primary font-bold text-sm flex items-center gap-1 group">
+                        See locations 
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="col-span-2 row-span-2 bg-inverse-surface shadow-2xl rounded-full p-6 flex flex-col justify-between text-on-primary">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="payments">payments</span>
+<div class="text-right">
+<span class="text-2xl font-black font-headline">$4.50</span>
+<span class="block text-[10px] uppercase opacity-60">per hour</span>
+</div>
+</div>
+<button class="w-full bg-primary py-3 rounded-xl font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 duration-200 transition-all">
+                        Reserve Spot C02
+                    </button>
+</div>
+</div>
+</div>
+<!-- Floating UI Tools -->
+<div class="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-30">
+<button class="w-12 h-12 rounded-full bg-surface-container-lowest shadow-xl flex items-center justify-center text-on-surface hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="my_location">my_location</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface-container-lowest shadow-xl flex items-center justify-center text-on-surface hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface-container-lowest shadow-xl flex items-center justify-center text-on-surface hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface-container-lowest shadow-xl flex items-center justify-center text-on-surface hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar (Visible on Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-t-3xl z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-violet-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Manrope'] text-[11px] font-semibold mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-2xl px-5 py-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-['Manrope'] text-[11px] font-semibold mt-1">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-violet-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Manrope'] text-[11px] font-semibold mt-1">Activity</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-violet-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Manrope'] text-[11px] font-semibold mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

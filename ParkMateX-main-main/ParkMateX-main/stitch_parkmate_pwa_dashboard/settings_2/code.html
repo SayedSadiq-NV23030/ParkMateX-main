@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#d8dadc",
+                    "on-primary-container": "#ede0ff",
+                    "primary": "#630ed4",
+                    "tertiary-container": "#a15100",
+                    "on-primary": "#ffffff",
+                    "secondary": "#545f73",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary-fixed": "#111c2d",
+                    "inverse-surface": "#2d3133",
+                    "primary-fixed": "#eaddff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#ccc3d8",
+                    "surface-tint": "#732ee4",
+                    "on-tertiary-container": "#ffe0cd",
+                    "on-surface-variant": "#4a4455",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary": "#7d3d00",
+                    "surface-variant": "#e0e3e5",
+                    "secondary-fixed": "#d8e3fb",
+                    "secondary-container": "#d5e0f8",
+                    "on-secondary-container": "#586377",
+                    "inverse-primary": "#d2bbff",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e6e8ea",
+                    "background": "#f7f9fb",
+                    "secondary-fixed-dim": "#bcc7de",
+                    "on-surface": "#191c1e",
+                    "on-secondary-fixed-variant": "#3c475a",
+                    "surface-bright": "#f7f9fb",
+                    "error": "#ba1a1a",
+                    "surface": "#f7f9fb",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-fixed": "#25005a",
+                    "on-primary-fixed-variant": "#5a00c6",
+                    "tertiary-fixed": "#ffdcc6",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "on-background": "#191c1e",
+                    "primary-container": "#7c3aed",
+                    "surface-container": "#eceef0",
+                    "tertiary-fixed-dim": "#ffb784",
+                    "outline": "#7b7487",
+                    "primary-fixed-dim": "#d2bbff",
+                    "on-tertiary-fixed": "#301400"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .tonal-shift {
+        transition: background-color 0.3s ease;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-violet-700 dark:text-violet-400 text-2xl" data-icon="local_parking">local_parking</span>
+<h1 class="font-['Manrope'] font-black tracking-tight text-2xl text-slate-900 dark:text-white">ParkMate</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary/10">
+<img alt="User profile avatar" data-alt="Close up portrait of a professional man with a friendly expression in soft studio lighting with a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASv9C9g7e641PFtUEr-gm73RB8s960r8WYPSioJNuVaRT6nO2QGoCJx2qdKbm5buXR-BUrTXmFStTJR8VpeTtF7sSrgwW6m7URNHwaGIff6XGoYFnJo_Fgjpwv3yWGLAyUJOs2XG74b11CWTrdQLyPVThP1c6VrERGZI7ZypUuxffNC_Bf0xP_x3tBGI7DBniQp0k_u6yAgCB1G9QnKnb_U9J7T5TLq0yD-Ls2vQ1rJSggSjhM_vgmCBKPff-S2yklc1kDBGKXEO0"/>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto">
+<!-- Profile Section -->
+<section class="mb-10">
+<div class="bg-surface-container-lowest p-6 rounded-xl flex items-center gap-6 shadow-[0_40px_40px_-5px_rgba(25,28,30,0.06)]">
+<div class="relative">
+<img class="w-20 h-20 rounded-full object-cover" data-alt="Professional portrait of a male user for a mobile app profile screen, high quality and clear lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmEC1uo-hcr0m7kM6cjGa_Lafb0DZ_-6DVi7vqZkMSBG-UX5uXvIVivRpjpQX0jIrQUNbSPAon3gjWD-7Yur5U2JJ6ib4flZHFTiSa26rYeT9UpaNs9cz1NqKSsmh6szkBGMHOGW7rp4TX35mXTXRbvMSFYtzm_8C7EwA_GBXTVSp75vgXzGgdfUFx3TzQmuI57MIFY3QTEI8HP7_rm_FD7f4mCppRQM74_RZscRrFQCLOaFNA-4-1UgCV_kbyRFpXaca8wPE6itw"/>
+<button class="absolute -bottom-1 -right-1 bg-primary text-on-primary p-1.5 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<div>
+<h2 class="font-headline font-bold text-xl text-on-surface">Alex Thompson</h2>
+<p class="text-on-surface-variant text-sm">alex.thompson@example.com</p>
+<span class="inline-block mt-2 px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-semibold rounded-full uppercase tracking-wider">Premium Member</span>
+</div>
+</div>
+</section>
+<!-- General Settings Group -->
+<div class="space-y-4">
+<h3 class="font-headline font-bold text-lg text-on-surface px-2">General Settings</h3>
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<!-- Dark Mode Toggle -->
+<div class="flex items-center justify-between p-5 bg-surface-container-lowest mb-[2px]">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high text-primary">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">Dark mode</p>
+<p class="text-xs text-on-surface-variant">Switch between light and dark themes</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Auto Refresh Toggle -->
+<div class="flex items-center justify-between p-5 bg-surface-container-lowest mb-[2px]">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high text-primary">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">Auto-refresh</p>
+<p class="text-xs text-on-surface-variant">Automatically update parking availability</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Language Selector -->
+<div class="flex items-center justify-between p-5 bg-surface-container-lowest">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high text-primary">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">Language</p>
+<p class="text-xs text-on-surface-variant">Select your preferred app language</p>
+</div>
+</div>
+<select class="bg-surface-container-high border-none rounded-lg text-sm font-semibold text-on-surface focus:ring-2 focus:ring-primary py-1.5 pl-3 pr-8">
+<option>English (US)</option>
+<option>Spanish</option>
+<option>French</option>
+<option>German</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Account Settings Group -->
+<div class="mt-8 space-y-4">
+<h3 class="font-headline font-bold text-lg text-on-surface px-2">Account</h3>
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<button class="w-full flex items-center justify-between p-5 bg-surface-container-lowest mb-[2px] hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</div>
+<p class="font-semibold text-on-surface">Notifications</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-5 bg-surface-container-lowest mb-[2px] hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+</div>
+<p class="font-semibold text-on-surface">Security &amp; Privacy</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-5 bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+</div>
+<p class="font-semibold text-on-surface">Payment Methods</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Danger Zone -->
+<div class="mt-12">
+<button class="w-full py-4 px-6 border-2 border-error/10 text-error font-bold rounded-xl hover:bg-error/5 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout from ParkMate
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-t-3xl z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-violet-500 transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Manrope'] text-[11px] font-semibold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-violet-500 transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-['Manrope'] text-[11px] font-semibold">Map</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-violet-500 transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Manrope'] text-[11px] font-semibold">Activity</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-2xl px-5 py-2 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-['Manrope'] text-[11px] font-semibold">Settings</span>
+</div>
+</nav>
+</body></html>
