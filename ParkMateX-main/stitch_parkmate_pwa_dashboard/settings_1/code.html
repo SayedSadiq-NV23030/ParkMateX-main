@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - ParkMate</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f7f9fb",
+                    "secondary": "#006d37",
+                    "on-primary-container": "#8690ee",
+                    "on-secondary-fixed": "#00210c",
+                    "outline": "#767683",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-container": "#eceef0",
+                    "on-secondary-container": "#007239",
+                    "surface-container-high": "#e6e8ea",
+                    "inverse-primary": "#bdc2ff",
+                    "on-secondary-fixed-variant": "#005228",
+                    "on-primary-fixed-variant": "#343d96",
+                    "outline-variant": "#c6c5d4",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e0e3e5",
+                    "on-primary-fixed": "#000767",
+                    "on-error": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "inverse-surface": "#2d3133",
+                    "primary": "#000666",
+                    "on-tertiary-container": "#fd6464",
+                    "tertiary-fixed": "#ffdad7",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#400005",
+                    "on-surface-variant": "#454652",
+                    "primary-fixed-dim": "#bdc2ff",
+                    "secondary-fixed-dim": "#61de8a",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary-fixed": "#410005",
+                    "on-background": "#191c1e",
+                    "background": "#f7f9fb",
+                    "surface-dim": "#d8dadc",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#7efba4",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#e0e0ff",
+                    "secondary-container": "#7bf8a1",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-fixed-variant": "#8e101c",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#4c56af",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#67000d",
+                    "error": "#ba1a1a",
+                    "primary-container": "#1a237e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f7f9fb]/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#000666] dark:text-[#7bf8a1]" data-icon="sensors">sensors</span>
+<span class="text-xl font-extrabold tracking-[-1%] text-[#000666] dark:text-[#ffffff]">ParkMate</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="close-up portrait of a professional smiling man in a modern office setting with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqLpl1pz9Lp7STN1bfz2Vg5O5THeK9zpXzefUvUQtfu6V-YH30CwZYcUh60Lxal7I0MO0O--4hOIzQrNtM0Q-6gMahl1qBcw4OQS6X5ySbPAebvIpOOCSsp0v8WyheyKTQIMqMVxJoEGR61k5yy4acWyvFpr7a8iAynNtf3t1ZuK6G3SAM44eP7vPIpI9iiL-8rxtFwowzBPC1DkJ5FvjKydYSCLDbryvMGkyOUEwIFBnbYhhvqiwLMWZB8AK4vLAl_-nQcte96e8"/>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Editorial Header -->
+<div class="mb-12">
+<h1 class="text-4xl font-extrabold tracking-tight text-primary mb-2">Settings</h1>
+<p class="text-on-surface-variant font-body">Manage your architectural concierge experience.</p>
+</div>
+<!-- Settings Section: Appearance -->
+<section class="mb-8">
+<h2 class="text-xs font-bold uppercase tracking-widest text-outline mb-4 ml-1">Interface</h2>
+<div class="space-y-4">
+<!-- Theme Toggle Card -->
+<div class="bg-surface-container-lowest p-5 rounded-xl flex items-center justify-between transition-all duration-300">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="dark_mode">dark_mode</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">Dark Appearance</p>
+<p class="text-xs text-on-surface-variant">Switch between light and dark themes</p>
+</div>
+</div>
+<button class="relative inline-flex h-6 w-11 items-center rounded-full bg-surface-container-highest">
+<span class="inline-block h-4 w-4 translate-x-1 rounded-full bg-white shadow-sm"></span>
+</button>
+</div>
+<!-- Language Selector Card -->
+<div class="bg-surface-container-lowest p-5 rounded-xl transition-all duration-300">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="translate">translate</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">System Language</p>
+<p class="text-xs text-on-surface-variant">Choose your preferred localized dialect</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+<button class="px-4 py-2.5 rounded-lg border border-primary text-primary font-medium text-sm bg-primary/5">English</button>
+<button class="px-4 py-2.5 rounded-lg border border-outline-variant text-on-surface-variant font-medium text-sm hover:bg-surface-container-low">Spanish</button>
+<button class="px-4 py-2.5 rounded-lg border border-outline-variant text-on-surface-variant font-medium text-sm hover:bg-surface-container-low">Mandarin</button>
+<button class="px-4 py-2.5 rounded-lg border border-outline-variant text-on-surface-variant font-medium text-sm hover:bg-surface-container-low">Hindi</button>
+<button class="px-4 py-2.5 rounded-lg border border-outline-variant text-on-surface-variant font-medium text-sm hover:bg-surface-container-low">Arabic</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Settings Section: Data & Refresh -->
+<section class="mb-8">
+<h2 class="text-xs font-bold uppercase tracking-widest text-outline mb-4 ml-1">Real-time Data</h2>
+<div class="space-y-4">
+<!-- Auto Refresh Card -->
+<div class="bg-surface-container-lowest p-5 rounded-xl transition-all duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="sync">sync</span>
+</div>
+<div>
+<p class="font-semibold text-on-surface">Auto-Refresh Feed</p>
+<p class="text-xs text-on-surface-variant">Update availability markers automatically</p>
+</div>
+</div>
+<button class="relative inline-flex h-6 w-11 items-center rounded-full bg-secondary">
+<span class="inline-block h-4 w-4 translate-x-6 rounded-full bg-white shadow-sm"></span>
+</button>
+</div>
+<!-- Progress Indicator -->
+<div class="mt-6 flex items-center gap-3 bg-surface-container-low p-3 rounded-lg">
+<div class="relative w-4 h-4">
+<div class="absolute inset-0 border-2 border-primary/20 rounded-full"></div>
+<div class="absolute inset-0 border-2 border-primary rounded-full border-t-transparent animate-spin"></div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary">Refreshing in 12s</span>
+<div class="ml-auto flex gap-1">
+<div class="w-1 h-1 rounded-full bg-primary"></div>
+<div class="w-1 h-1 rounded-full bg-primary/30"></div>
+<div class="w-1 h-1 rounded-full bg-primary/30"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Account Section -->
+<section class="mb-8">
+<h2 class="text-xs font-bold uppercase tracking-widest text-outline mb-4 ml-1">Security</h2>
+<div class="bg-surface-container-lowest rounded-xl divide-y divide-surface-container">
+<button class="w-full flex items-center justify-between p-5 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="lock">lock</span>
+<span class="font-medium text-on-surface">Privacy Policy</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-5 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-error" data-icon="logout">logout</span>
+<span class="font-medium text-error">Sign Out</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-[#f7f9fb]/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-[0_-4px_24px_rgba(25,28,30,0.04)] z-50">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2.5 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-2xl transition-all" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wider uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2.5 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-2xl transition-all" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="map">map</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wider uppercase mt-1">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2.5 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-2xl transition-all" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="history">history</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wider uppercase mt-1">Activity</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#000666] dark:bg-[#7bf8a1] text-white dark:text-[#000666] rounded-2xl p-2.5 shadow-lg scale-100 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wider uppercase mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f7f9fb",
+                    "secondary": "#006d37",
+                    "on-primary-container": "#8690ee",
+                    "on-secondary-fixed": "#00210c",
+                    "outline": "#767683",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-container": "#eceef0",
+                    "on-secondary-container": "#007239",
+                    "surface-container-high": "#e6e8ea",
+                    "inverse-primary": "#bdc2ff",
+                    "on-secondary-fixed-variant": "#005228",
+                    "on-primary-fixed-variant": "#343d96",
+                    "outline-variant": "#c6c5d4",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e0e3e5",
+                    "on-primary-fixed": "#000767",
+                    "on-error": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "inverse-surface": "#2d3133",
+                    "primary": "#000666",
+                    "on-tertiary-container": "#fd6464",
+                    "tertiary-fixed": "#ffdad7",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#400005",
+                    "on-surface-variant": "#454652",
+                    "primary-fixed-dim": "#bdc2ff",
+                    "secondary-fixed-dim": "#61de8a",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary-fixed": "#410005",
+                    "on-background": "#191c1e",
+                    "background": "#f7f9fb",
+                    "surface-dim": "#d8dadc",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#7efba4",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#e0e0ff",
+                    "secondary-container": "#7bf8a1",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-fixed-variant": "#8e101c",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#4c56af",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#67000d",
+                    "error": "#ba1a1a",
+                    "primary-container": "#1a237e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .spot-pulse {
+            box-shadow: 0 0 0 0 rgba(123, 248, 161, 0.7);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(123, 248, 161, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(123, 248, 161, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(123, 248, 161, 0); }
+        }
+        .parking-grid {
+            background-image: radial-gradient(circle at 1px 1px, #e0e3e5 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-primary min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f7f9fb]/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#000666] dark:text-[#7bf8a1]" data-icon="sensors">sensors</span>
+<h1 class="font-['Manrope'] font-extrabold tracking-[-1%] text-xl text-[#000666] dark:text-[#ffffff]">ParkMate</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity" data-icon="search">search</button>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden ring-2 ring-surface-container-high">
+<img alt="User profile" data-alt="professional portrait of a man with a friendly expression in studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDczjp4Y6f06lFPltlQ4ZoJfcm30VhEMWbDUhuxH-xvFCBohttSFajVeDc4wiZWJ3gjyvPigDQi1iocyMzyGbK1HO__4wKD8hj91ytYeCnkAZp1pUMuT4gwC3hdGVIM9HEmSdNRDWN1vynxC-UISJ0kM5Rr4QA3XjMI_fuYNA5ual-9lG4AfMjftM1BB1cbrh8p5Cpi-CyudTJFm-9-I0btmS47HH-gBSsjUDXSf0hqjIWifalUh2YctbWF36KDhOR3O4Ke1Ea5yUc"/>
+</div>
+</div>
+</header>
+<!-- Main Map Canvas -->
+<main class="relative pt-16 pb-24 h-screen w-full overflow-hidden flex flex-col">
+<!-- Map Background / Layout -->
+<div class="flex-grow relative parking-grid overflow-auto p-8 flex items-center justify-center">
+<!-- Floating Map Info -->
+<div class="absolute top-20 left-6 z-10 space-y-2">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-4 py-2 rounded-xl shadow-sm border border-outline-variant/10">
+<p class="text-[10px] font-bold tracking-wider uppercase text-on-surface-variant">Current Zone</p>
+<p class="font-headline font-bold text-primary">North Plaza Level 2</p>
+</div>
+</div>
+<!-- Controls (Top Right) -->
+<div class="absolute top-20 right-6 z-10 flex flex-col gap-2">
+<button class="w-12 h-12 bg-surface-container-lowest rounded-xl shadow-lg flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<button class="w-12 h-12 bg-surface-container-lowest rounded-xl shadow-lg flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+<button class="w-12 h-12 bg-surface-container-lowest rounded-xl shadow-lg flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="my_location">my_location</span>
+</button>
+</div>
+<!-- Parking Grid Container -->
+<div class="grid grid-cols-4 md:grid-cols-6 gap-6 min-w-[600px] max-w-4xl mx-auto py-12">
+<!-- Row 1 -->
+<div class="h-28 bg-surface-container-highest rounded-lg flex items-center justify-center text-[10px] font-bold text-outline uppercase tracking-widest opacity-40">B12</div>
+<div class="h-28 bg-tertiary-fixed rounded-lg border-2 border-on-tertiary-fixed-variant/10 flex items-end justify-center pb-2 relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary/5"></div>
+<span class="text-[10px] font-bold text-on-tertiary-fixed-variant z-10">B13</span>
+</div>
+<!-- Recommended Spot (Active/Pulsing) -->
+<div class="h-28 bg-secondary-container border-2 border-secondary spot-pulse rounded-lg flex items-center justify-center cursor-pointer relative group transition-transform active:scale-95">
+<div class="text-center">
+<p class="text-[10px] font-bold text-on-secondary-container tracking-wider uppercase">B14</p>
+<p class="font-headline font-extrabold text-secondary text-xs">BEST</p>
+</div>
+<!-- Popup State Simulation -->
+<div class="absolute -top-16 left-1/2 -translate-x-1/2 w-32 bg-surface-container-lowest shadow-xl rounded-xl p-3 border border-outline-variant/20 z-20">
+<div class="flex flex-col gap-1">
+<span class="text-[9px] uppercase tracking-tighter text-secondary font-bold">Available Now</span>
+<button class="bg-primary text-white text-[10px] font-bold py-1.5 rounded-lg hover:opacity-90">RESERVE</button>
+</div>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-surface-container-lowest rotate-45 border-r border-b border-outline-variant/20"></div>
+</div>
+</div>
+<div class="h-28 bg-tertiary-fixed rounded-lg border-2 border-on-tertiary-fixed-variant/10 flex items-end justify-center pb-2 relative overflow-hidden">
+<span class="text-[10px] font-bold text-on-tertiary-fixed-variant">B15</span>
+</div>
+<div class="h-28 bg-surface-container-highest rounded-lg flex items-center justify-center text-[10px] font-bold text-outline opacity-40">B16</div>
+<div class="h-28 bg-surface-container-highest rounded-lg flex items-center justify-center text-[10px] font-bold text-outline opacity-40">B17</div>
+<!-- Row 2 -->
+<div class="h-28 bg-tertiary-fixed rounded-lg border-2 border-on-tertiary-fixed-variant/10 flex items-end justify-center pb-2 relative overflow-hidden">
+<span class="text-[10px] font-bold text-on-tertiary-fixed-variant">C01</span>
+</div>
+<div class="h-28 bg-secondary-container/40 border border-secondary/20 rounded-lg flex items-center justify-center cursor-pointer hover:bg-secondary-container transition-colors group">
+<span class="text-[10px] font-bold text-on-secondary-container tracking-wider uppercase group-hover:hidden">C02</span>
+<span class="hidden group-hover:block text-[9px] font-bold text-secondary">FREE</span>
+</div>
+<div class="h-28 bg-tertiary-fixed rounded-lg border-2 border-on-tertiary-fixed-variant/10 flex items-end justify-center pb-2 relative overflow-hidden">
+<span class="text-[10px] font-bold text-on-tertiary-fixed-variant">C03</span>
+</div>
+<div class="h-28 bg-surface-container-highest rounded-lg flex items-center justify-center text-[10px] font-bold text-outline opacity-40">C04</div>
+<div class="h-28 bg-secondary-container/40 border border-secondary/20 rounded-lg flex items-center justify-center cursor-pointer hover:bg-secondary-container transition-colors">
+<span class="text-[10px] font-bold text-on-secondary-container tracking-wider uppercase">C05</span>
+</div>
+<div class="h-28 bg-tertiary-fixed rounded-lg border-2 border-on-tertiary-fixed-variant/10 flex items-end justify-center pb-2 relative overflow-hidden">
+<span class="text-[10px] font-bold text-on-tertiary-fixed-variant">C06</span>
+</div>
+<!-- Row 3 -->
+<div class="h-28 bg-surface-container-highest rounded-lg flex items-center justify-center text-[10px] font-bold text-outline opacity-40">D22</div>
+<div class="h-28 bg-secondary-container/40 border border-secondary/20 rounded-lg flex items-center justify-center cursor-pointer hover:bg-secondary-container transition-colors">
+<span class="text-[10px] font-bold text-on-secondary-container tracking-wider uppercase">D23</span>
+</div>
+<div class="h-28 bg-secondary-container/40 border border-secondary/20 rounded-lg flex items-center justify-center cursor-pointer hover:bg-secondary-container transition-colors">
+<span class="text-[10px] font-bold text-on-secondary-container tracking-wider uppercase">D24</span>
+</div>
+<div class="h-28 bg-tertiary-fixed rounded-lg border-2 border-on-tertiary-fixed-variant/10 flex items-end justify-center pb-2 relative overflow-hidden">
+<span class="text-[10px] font-bold text-on-tertiary-fixed-variant">D25</span>
+</div>
+<div class="h-28 bg-tertiary-fixed rounded-lg border-2 border-on-tertiary-fixed-variant/10 flex items-end justify-center pb-2 relative overflow-hidden">
+<span class="text-[10px] font-bold text-on-tertiary-fixed-variant">D26</span>
+</div>
+<div class="h-28 bg-secondary-container/40 border border-secondary/20 rounded-lg flex items-center justify-center cursor-pointer hover:bg-secondary-container transition-colors">
+<span class="text-[10px] font-bold text-on-secondary-container tracking-wider uppercase">D27</span>
+</div>
+</div>
+</div>
+<!-- Legend and Quick Stats Floating -->
+<div class="absolute bottom-28 left-6 right-6 flex justify-between items-end pointer-events-none">
+<div class="bg-surface-container-lowest/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-outline-variant/10 pointer-events-auto flex gap-6">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary-container border border-secondary"></div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-widest">Available</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-tertiary-fixed border border-on-tertiary-fixed-variant/20"></div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-widest">Occupied</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-surface-container-highest"></div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-widest">Inactive</span>
+</div>
+</div>
+<div class="bg-primary p-4 rounded-2xl shadow-xl pointer-events-auto flex flex-col items-center">
+<span class="text-[10px] font-bold text-white/60 uppercase tracking-tighter">Availability</span>
+<span class="text-2xl font-headline font-extrabold text-secondary-container leading-none">42%</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-[#f7f9fb]/80 dark:bg-slate-950/80 backdrop-blur-xl rounded-t-2xl z-50 shadow-[0_-4px_24px_rgba(25,28,30,0.04)]">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2.5 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wider uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#000666] dark:bg-[#7bf8a1] text-white dark:text-[#000666] rounded-2xl p-2.5 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wider uppercase">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2.5 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="history">history</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wider uppercase">Activity</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2.5 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wider uppercase">Settings</span>
+</a>
+</nav>
+</body></html>
